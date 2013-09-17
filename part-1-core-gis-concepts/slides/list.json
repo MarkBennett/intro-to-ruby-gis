@@ -1,1 +1,18 @@
-["index.md"]
+[
+    "index.md",
+    "why-do-you-need-gis.html",
+    "abstract.html",
+    "whats-in-this-talk.html",
+    "what-is-gis.html",
+    "questions-gis-can-answer.html",
+    "geometries.html",
+    "multi-geometries.html",
+    "coordinates-and-projections.html",
+    "spatial-reference-systems.html",
+    "srids.html",
+    "gis-data-formats.html",
+    "gis-software.html",
+    "summary.html",
+    "whats-next.html",
+    "questions.html"
+]
