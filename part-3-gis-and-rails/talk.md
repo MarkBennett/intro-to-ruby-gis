@@ -2,10 +2,22 @@
 
 
 
+
+
+
+
+
+
 ## Objectives
 
 1. Setup Rails with PostGIS
 2. Effectively use PostGIS with ActiveRecord
+
+
+
+
+
+
 
 
 
@@ -17,6 +29,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 ## Setting up Rails and PostGIS
 
 ### 1. Create a new Rails app
@@ -25,11 +47,23 @@
 
 
 
+
+
+
+
+
+
+
 ### 2. Install activerecord-postgis-adapter by @danielazuma
 
 Add `activerecord-postgis-adapter` to Gemfile
 
     bundle install
+
+
+
+
+
 
 
 
@@ -54,6 +88,10 @@ but should end up with a configuration that looks like this:
       su_password: my_global_pasword  # substitute the superuser's password
 
 You can now create your database with `bin/rake db:create`.
+
+
+
+
 
 
 
@@ -121,17 +159,47 @@ Now create some Venues in the console. We'll use these later.
     Venue.create(name: "Credo", location: 'POINT(-113.4994857 53.5417982)')
     Venue.create(name: "Tim Hortons", location: 'POINT(-113.4952626, 53.5410348)')
 
+
+
+
+
+
+
+
 ### 5. Import OpenStreetMap data
 
 We'll skip this import now, as it takes ~5 minutes. Here's the command:
 
     osm2pgsql -H localhost -d part-3-gis-and-rails_development alberta-latest.osm
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 6. Writing PostGIS queries in ActiveRecord
 
 You can do simple equality queries easily:
 
     Venue.where(location: 'POINT(-113.4990033 53.542463)')
+
+This is lame. You can't really do anything else interesting out of the box and
+still use PostGIS with ActiveRecord and AREL.
+
+
+
+
+
+
+
 
 ### 7. Using Squeel
 
@@ -146,10 +214,20 @@ You can the write queries like this:
 
 See the `activerecord-postgis-adapter` for more examples.
 
+
+
+
+
+
+
+
+
+
 ### 8. Gotchas
 
 * Querying with invalid EWKT will set geometries to `nil`, not raise an exception.
 * Setting a factory for your columns can save you a lot of time later on
+* These queries will be slow and use lots of memory, leave time to optimize
 
 
 ## Resources
@@ -159,3 +237,4 @@ See the `activerecord-postgis-adapter` for more examples.
 * https://github.com/dazuma
 * http://www.postgresql.org/docs/8.3/static/performance-tips.html
 * http://revenant.ca/www/postgis/workshop/analysis.html
+* http://download.geofabrik.de/north-america/canada/alberta.html
