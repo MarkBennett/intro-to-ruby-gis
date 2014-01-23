@@ -166,11 +166,11 @@ Now create some Venues in the console. We'll use these later.
 
 
 
-### 5. Import OpenStreetMap data
+### 5. Import openstreetmap data
 
-We'll skip this import now, as it takes ~5 minutes. Here's the command:
+we'll skip this import now, as it takes ~5 minutes. here's the command:
 
-    osm2pgsql -H localhost -d part-3-gis-and-rails_development alberta-latest.osm
+    osm2pgsql -h localhost -d part-3-gis-and-rails_development alberta-latest.osm
 
 
 
@@ -228,6 +228,13 @@ See the `activerecord-postgis-adapter` for more examples.
 * Querying with invalid EWKT will set geometries to `nil`, not raise an exception.
 * Setting a factory for your columns can save you a lot of time later on
 * These queries will be slow and use lots of memory, leave time to optimize
+
+
+
+
+
+
+
 
 
 ## Resources
